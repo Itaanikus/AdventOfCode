@@ -4,9 +4,10 @@
     {
         public static void GetTaskResults()
         {
-            #region Part1
+            #region Part1 & Part2
             var lines = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day2.txt");
-            var totalScore = 0;
+            var totalScorePart1 = 0;
+            var totalScorePart2 = 0;
 
             foreach (var line in lines)
             {
@@ -14,7 +15,7 @@
                 var opponentChoice = strategyGuideResults[0];
                 var bestChoice = strategyGuideResults[1];
 
-                totalScore += (opponentChoice, bestChoice) switch
+                totalScorePart1 += (opponentChoice, bestChoice) switch
                 {
                     ("A", "X") => 3 + 1,
                     ("B", "X") => 0 + 1,
@@ -27,20 +28,6 @@
                     ("C", "Z") => 3 + 3,
                     _ => throw new NotSupportedException()
                 };
-            }
-
-            var partOneResult = totalScore;
-            Console.WriteLine($"Task 1 result is: {partOneResult}");
-            #endregion
-
-            #region Part2
-            var totalScorePart2 = 0;
-
-            foreach (var line in lines)
-            {
-                var strategyGuideResults = line.Split(' ', 2);
-                var opponentChoice = strategyGuideResults[0];
-                var bestChoice = strategyGuideResults[1];
 
                 totalScorePart2 += (opponentChoice, bestChoice) switch
                 {
@@ -57,8 +44,8 @@
                 };
             }
 
-            var partTwoResult = totalScorePart2;
-            Console.WriteLine($"Task 2 result is: {partTwoResult}");
+            Console.WriteLine($"Task 1 result is: {totalScorePart1}");
+            Console.WriteLine($"Task 2 result is: {totalScorePart2}");
             #endregion
         }
     }

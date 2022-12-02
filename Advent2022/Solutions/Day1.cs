@@ -1,35 +1,38 @@
-﻿namespace Advent2022.Solutions
+﻿using System.Collections.Immutable;
+
+namespace Advent2022.Solutions
 {
     internal static class Day1
     {
         public static void GetTaskResults()
         {
             #region Part1
-            var elfDictionary = new Dictionary<int, long>();
             var elfKey = 0;
-            var accumulated = 0;
+            var elfDictionary = new Dictionary<int, long> { { elfKey, 0 } };
 
-            var lines = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day1.txt");
+            var lines = File.ReadAllLines(@$"{Directory.GetCurrentDirectory()}\Inputs\Day1.txt");
 
             foreach (var line in lines)
             {
                 if (string.IsNullOrWhiteSpace(line))
                 {
-                    elfDictionary.Add(elfKey, accumulated);
-                    elfKey++;
-                    accumulated = 0;
+                    elfDictionary.Add(++elfKey, 0);
                     continue;
                 }
 
-                accumulated += int.Parse(line.Trim());
+                elfDictionary[elfKey] += int.Parse(line.Trim());
             }
 
-            var maxCalorieValue = elfDictionary.Values.Max();
-            Console.WriteLine($"Task 1: The maximum calories an elf has is {maxCalorieValue}");
+            var orderedDictionaryValues = elfDictionary
+                .Values
+                .OrderByDescending(x => x)
+                .ToImmutableList();
+
+            Console.WriteLine($"Task 1: The maximum calories an elf has is {orderedDictionaryValues.First()}");
             #endregion
 
             #region Part2
-            var caloriesFromTopThreeElves = elfDictionary.Values.OrderByDescending(x => x).Take(3).Sum();
+            var caloriesFromTopThreeElves = orderedDictionaryValues.Take(3).Sum();
             Console.WriteLine($"Task 2: The top three elves have in total {caloriesFromTopThreeElves} calories.");
             #endregion
         }
