@@ -1,3 +1,3 @@
 ﻿using Advent2022.Solutions;
 
-Day2.GetTaskResults();
+Day3.GetTaskResults();
