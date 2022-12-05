@@ -51,7 +51,7 @@ namespace Advent2022.Solutions
         }
     }
 
-    internal record CleaningSectionPair(int StartSection, int EndSection)
+    internal readonly record struct CleaningSectionPair(int StartSection, int EndSection)
     {
         public static CleaningSectionPair operator -(CleaningSectionPair pair1, CleaningSectionPair pair2) =>
             new(pair1.StartSection - pair2.StartSection, pair1.EndSection - pair2.EndSection);
