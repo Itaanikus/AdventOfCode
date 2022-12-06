@@ -1,4 +1,6 @@
-﻿namespace Advent2022.Solutions;
+﻿using System.Diagnostics;
+
+namespace Advent2022.Solutions;
 
 internal static class Day6
 {
@@ -12,19 +14,21 @@ internal static class Day6
 
         var task1Result = 0;
         var task2Result = 0;
-        var fourLetterQueue = new Queue<char>();
+
+        const int QueueLimit = 14; // Change to 14 for part 2...
+        var fourLetterQueue = new Queue<char>(QueueLimit + 1);
 
         for (int i = 0; i < input.Length; i++)
         {
             var letter = input[i];
             fourLetterQueue.Enqueue(letter);
 
-            if (fourLetterQueue.Count == 15)
+            if (fourLetterQueue.Count > QueueLimit)
             {
                 fourLetterQueue.Dequeue();
             }
 
-            if (fourLetterQueue.Count == 14 && fourLetterQueue.Distinct().Count() == 14)
+            if (fourLetterQueue.Count == QueueLimit && IsUnique(fourLetterQueue))
             {
                 task1Result = i + 1;
                 break;
@@ -34,5 +38,11 @@ internal static class Day6
 
         Console.WriteLine($"Task 1 result is: {task1Result}");
         Console.WriteLine($"Task 2 result is: {task2Result}");
+    }
+
+    private static bool IsUnique(Queue<char> queue)
+    {
+        var diffChecker = new HashSet<char>();
+        return queue.All(diffChecker.Add);
     }
 }
