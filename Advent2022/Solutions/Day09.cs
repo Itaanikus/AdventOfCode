@@ -10,7 +10,7 @@ internal static class Day09
     {
         var useExample = false;
         var lines = File.ReadAllLines(useExample ? ExampleInputPath : InputPath);
-        var knots = GenerateKnots(NumberOfKnots);
+        var knots = Enumerable.Range(1, 10).Select(_ => new Knot()).ToList();
 
         var coveredSpacesByEndKnot = new HashSet<(int, int)> { (0, 0) };
 
@@ -19,13 +19,13 @@ internal static class Day09
             var splitInput = line.Split(' ', 2);
             var (direction, moveCount) = (splitInput[0], int.Parse(splitInput[1]));
 
-            for (int moveNumber = 0; moveNumber < moveCount; moveNumber++)
+            for (int i = 0; i < moveCount; i++)
             {
                 knots[0].Move(direction);
 
-                for (int knotNumber = 1; knotNumber < knots.Count; knotNumber++)
+                for (int knot = 1; knot < knots.Count; knot++)
                 {
-                    knots[knotNumber].Follow(knots[knotNumber - 1]);
+                    knots[knot].Follow(knots[knot - 1]);
                 }
 
                 var endKnot = knots[NumberOfKnots - 1];
@@ -34,18 +34,6 @@ internal static class Day09
         }
 
         Console.WriteLine($"Task result is: {coveredSpacesByEndKnot.Count}");
-    }
-
-    private static List<Knot> GenerateKnots(int numberOfKnots)
-    {
-        var knots = new List<Knot>();
-
-        for (int i = 0; i < numberOfKnots; i++)
-        {
-            knots.Add(new());
-        }
-
-        return knots;
     }
 }
 
@@ -78,17 +66,17 @@ internal static class KnotExtensions
 
     internal static void Follow(this Knot knot, Knot knotToFollow)
     {
-        if (!MoveIsNeeded(knotToFollow, knot))
+        if (!IsMoveNeeded(knotToFollow, knot))
         {
             return;
         }
 
-        if (knotToFollow.Y > knot.Y) knot.Y++;
-        if (knotToFollow.Y < knot.Y) knot.Y--;
-        if (knotToFollow.X > knot.X) knot.X++;
-        if (knotToFollow.X < knot.X) knot.X--;
+        if (knotToFollow.Y > knot.Y) { knot.Y++; };
+        if (knotToFollow.Y < knot.Y) { knot.Y--; };
+        if (knotToFollow.X > knot.X) { knot.X++; };
+        if (knotToFollow.X < knot.X) { knot.X--; };
     }
 
-    private static bool MoveIsNeeded(Knot knot1, Knot knot2)
-        => Math.Abs(knot1.X - knot2.X) > 1 || Math.Abs(knot1.Y - knot2.Y) > 1;
+    private static bool IsMoveNeeded(Knot knot1, Knot knot2) =>
+        Math.Abs(knot1.X - knot2.X) > 1 || Math.Abs(knot1.Y - knot2.Y) > 1;
 }
