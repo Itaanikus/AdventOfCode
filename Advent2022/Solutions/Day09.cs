@@ -25,7 +25,7 @@ internal static class Day09
 
                 for (int knotNumber = 1; knotNumber < knots.Count; knotNumber++)
                 {
-                    knots[knotNumber].Follow(knots[knotNumber-1]);
+                    knots[knotNumber].Follow(knots[knotNumber - 1]);
                 }
 
                 var endKnot = knots[NumberOfKnots - 1];
@@ -83,25 +83,10 @@ internal static class KnotExtensions
             return;
         }
 
-        if (knotToFollow.Y > knot.Y)
-        {
-            knot.Y++;
-        }
-
-        if (knotToFollow.Y < knot.Y)
-        {
-            knot.Y--;
-        }
-
-        if (knotToFollow.X > knot.X)
-        {
-            knot.X++;
-        }
-
-        if (knotToFollow.X < knot.X)
-        {
-            knot.X--;
-        }
+        if (knotToFollow.Y > knot.Y) knot.Y++;
+        if (knotToFollow.Y < knot.Y) knot.Y--;
+        if (knotToFollow.X > knot.X) knot.X++;
+        if (knotToFollow.X < knot.X) knot.X--;
     }
 
     private static bool MoveIsNeeded(Knot knot1, Knot knot2)
