@@ -1,6 +1,6 @@
 ﻿namespace Advent2022.Solutions
 {
-    internal static class Day3
+    internal static class Day03
     {
         public static void GetTaskResults()
         {
