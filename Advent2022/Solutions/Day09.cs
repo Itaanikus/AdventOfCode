@@ -1,6 +1,6 @@
 ﻿namespace Advent2022.Solutions;
 
-internal static class Day9
+internal static class Day09
 {
     private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day9.txt";
     private static readonly string ExampleInputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day9_example.txt";
@@ -31,7 +31,6 @@ internal static class Day9
                 var endKnot = knots[NumberOfKnots - 1];
                 coveredSpacesByEndKnot.Add((endKnot.X, endKnot.Y));
             }
-
         }
 
         Console.WriteLine($"Task result is: {coveredSpacesByEndKnot.Count}");

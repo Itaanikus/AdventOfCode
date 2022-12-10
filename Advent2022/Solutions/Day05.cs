@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent2022.Solutions
 {
-    internal static class Day5
+    internal static class Day05
     {
         public static void GetTaskResults()
         {
