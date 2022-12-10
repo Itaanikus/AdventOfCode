@@ -4,7 +4,7 @@
     {
         public static void GetTaskResults()
         {
-            var lines = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day3.txt");
+            var lines = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day03.txt");
             var totalScorePart1 = 0;
 
             var elfGroups = new Dictionary<int, List<string>>();

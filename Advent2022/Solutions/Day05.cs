@@ -8,7 +8,7 @@ namespace Advent2022.Solutions
     {
         public static void GetTaskResults()
         {
-            var input = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day5.txt");
+            var input = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day05.txt");
             var stacks = new Dictionary<int, List<Crate>>();
 
             foreach (var line in input)

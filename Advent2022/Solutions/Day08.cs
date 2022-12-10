@@ -2,8 +2,8 @@
 
 internal static class Day08
 {
-    private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day8.txt";
-    private static readonly string ExampleInputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day8_example.txt";
+    private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day08.txt";
+    private static readonly string ExampleInputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day08_example.txt";
 
     public static void GetTaskResults()
     {

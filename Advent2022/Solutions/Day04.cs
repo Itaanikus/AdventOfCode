@@ -6,7 +6,7 @@ namespace Advent2022.Solutions
     {
         public static void GetTaskResults()
         {
-            var input = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day4.txt");
+            var input = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day04.txt");
             var task1Result = 0;
             var task2Result = 0;
 

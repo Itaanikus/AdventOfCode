@@ -9,7 +9,7 @@ namespace Advent2022.Solutions;
 
 internal static class Day07
 {
-    private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day7.txt";
+    private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day07.txt";
     private static readonly string TestInputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day7test.txt";
 
     public static void GetTaskResults()

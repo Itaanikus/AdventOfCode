@@ -5,7 +5,7 @@
         public static void GetTaskResults()
         {
             #region Part1 & Part2
-            var lines = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day2.txt");
+            var lines = File.ReadAllLines($"{Directory.GetCurrentDirectory()}\\Inputs\\Day02.txt");
             var totalScorePart1 = 0;
             var totalScorePart2 = 0;
 

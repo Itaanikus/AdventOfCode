@@ -2,8 +2,8 @@
 
 internal static class Day09
 {
-    private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day9.txt";
-    private static readonly string ExampleInputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day9_example.txt";
+    private static readonly string InputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day09.txt";
+    private static readonly string ExampleInputPath = $"{Directory.GetCurrentDirectory()}\\Inputs\\Day09_example.txt";
     private const int NumberOfKnots = 10; // Use 2 for Task 1
 
     public static void GetTaskResults()

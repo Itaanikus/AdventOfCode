@@ -10,7 +10,7 @@ namespace Advent2022.Solutions
             var elfKey = 0;
             var elfDictionary = new Dictionary<int, long> { { elfKey, 0 } };
 
-            var lines = File.ReadAllLines(@$"{Directory.GetCurrentDirectory()}\Inputs\Day1.txt");
+            var lines = File.ReadAllLines(@$"{Directory.GetCurrentDirectory()}\Inputs\Day01.txt");
 
             foreach (var line in lines)
             {
