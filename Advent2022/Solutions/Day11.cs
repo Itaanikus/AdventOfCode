@@ -16,7 +16,10 @@ internal static class Day11
     {
         var useExample = false;
         var lines = File.ReadAllLines(useExample ? ExampleInputPath : InputPath);
+
         var monkeys = SetupMonkeysFromInput(lines);
+        long commonMultiple = 1;
+        monkeys.ForEach(x => commonMultiple *= x.Divisible);
 
         for (int round = 0; round < AmountOfRounds; round++)
         {
@@ -27,7 +30,7 @@ internal static class Day11
                 {
                     var dequeuedItemWorry = monkey.Items.Dequeue();
                     var newWorryLevel = monkey.Operate(dequeuedItemWorry);
-                    newWorryLevel %= 9699690; // Part 2 value-sky-rocketing relevant.
+                    newWorryLevel %= commonMultiple;
 
                     var relievedWorryLevel = newWorryLevel / ReliefFactor;
                     monkey.Throw(relievedWorryLevel, monkeys);
