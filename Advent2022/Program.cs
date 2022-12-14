@@ -3,6 +3,6 @@ using System.Diagnostics;
 
 var stopwatch = new Stopwatch();
 stopwatch.Start();
-Day12.GetTaskResults();
+Day13.GetTaskResults();
 stopwatch.Stop();
 Console.WriteLine($"Time elapsed: {stopwatch.Elapsed:c}");
