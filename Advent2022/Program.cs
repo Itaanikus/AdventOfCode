@@ -1,3 +1,8 @@
 ﻿using Advent2022.Solutions;
+using System.Diagnostics;
 
-Day11.GetTaskResults();
+var stopwatch = new Stopwatch();
+stopwatch.Start();
+Day12.GetTaskResults();
+stopwatch.Stop();
+Console.WriteLine($"Time elapsed: {stopwatch.Elapsed:c}");
