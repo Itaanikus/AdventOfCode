@@ -55,10 +55,9 @@ internal static class Day10
 
         Console.WriteLine($"Task 1 result is: {task1Result}");
 
-        for (int i = 0; i < imageString.Count; i++)
+        for (int i = 0; i < imageString.Count; i+=40)
         {
             Console.WriteLine(new string(imageString.Skip(i).Take(40).ToArray()));
-            i += 39;
         }
     }
 }
