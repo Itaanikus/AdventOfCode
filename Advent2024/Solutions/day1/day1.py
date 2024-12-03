@@ -1,15 +1,27 @@
-column1 = []
-column2 = []
+leftColumn = []
+rightColumn = []
 
-with open('day1_example.txt', 'r') as file:
+with open('day1_input.txt', 'r') as file:
+# with open('day1_example.txt', 'r') as file:
     for line in file:
         columns = line.split()
 
-        column1.append(int(columns[0]))
-        column2.append(int(columns[1]))
+        leftColumn.append(int(columns[0]))
+        rightColumn.append(int(columns[1]))
 
-column1.sort()
-column2.sort()
+leftColumn.sort()
+rightColumn.sort()
 
-print("Column 1:", column1)
-print("Column 2:", column2)
+diffSum = 0
+
+for i in range(len(leftColumn)):
+    diffSum += abs(leftColumn[i] - rightColumn[i])
+
+print(diffSum)
+
+# Part 2
+similarityScore = 0
+for value in leftColumn:
+    similarityScore += value * rightColumn.count(value)
+
+print(similarityScore)
